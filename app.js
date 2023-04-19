@@ -1,27 +1,20 @@
 const express = require('express')
-const mongoose = require('mongoose')
+const app = express()
+const port = 3000
 const exphbs = require('express-handlebars')
+const methodOverride = require('method-override')
+const routes = require('./routes')
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
-
-const app = express()
-mongoose.connect(process.env.MONGODB_URI)
-
-const port = 3000
-const db = mongoose.connection
+require('./config/mongoose')
 
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
 
-db.on('error', () => {
-  console.log('mongodb error')
-})
-
-db.once('open', () => {
-  console.log('mongodb connected!')
-})
+app.use(methodOverride('_method'))
+app.use(routes)
 
 app.get('/', (req, res) => {
   res.render('index')

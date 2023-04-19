@@ -1,18 +1,19 @@
 const mongoose = require('mongoose')
+const db = require('../../config/mongoose')
 const Hospital = require('../hospital')
 const faker = require('faker')
 
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config()
-}
+// if (process.env.NODE_ENV !== 'production') {
+//   require('dotenv').config()
+// }
 
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+// mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
 
-const db = mongoose.connection
+// const db = mongoose.connection
 
-db.on('error', () => {
-  console.log('mongodb error!')
-})
+// db.on('error', () => {
+//   console.log('mongodb error!')
+// })
 db.once('open', () => {
   for(let i = 0; i < 5; i++){
     Hospital.create({
