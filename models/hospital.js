@@ -1,26 +1,23 @@
 const mongoose = require('mongoose')
-const { stringify } = require('querystring')
 const Schema = mongoose.Schema
 const hospitalSchema = new Schema ({
   name: {
-    type: string,
+    type: String,
     required: true
   },
   address: {
-    type: string,
+    type: String,
     required: true
   },
   telephone: {
-    type: Number,
+    type: String,
     required: true
   },
   description: {
-    type: Text,
-    required: false
+    type: String
   },
-  cover:{
-    type: String,
-    required: false
+  image:{
+    type: String
   }
 })
 
