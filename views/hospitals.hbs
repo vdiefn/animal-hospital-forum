@@ -2,28 +2,32 @@
 <div class="container mt-5">
   <div class="row">
     <!-- Carousel -->
-
     <!-- end -->
 
     <div class="col-md-12 col-12 mx-auto">
       <div class="row row-cols-sm-4">
         <!-- The First Hospital -->
-        <a href="/hospitals/1" class="text-secondary">
+        <a href="/hospitals/1" class="text-secondary" style="text-decoration:none;">
           <div class="card mb-3" style="width: 300px;">
             <img class="card-img-top" src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5635/01.jpg{{this.image}}" alt="{{this.name}}">
             <div class="card-body p-3">
-              <h6 class="card-title mb-1">AAA醫院{{this.name}}</h6>
+              <h6 class="card-title mb-1" style=" text-decoration: none;">AAA醫院{{this.name}}</h6>
 
-              <div class="restaurant-category mb-1">
-                <i class="fa-solid fa-square-h"style="color: #334d7a;"></i> 地址 {{this.address}}
+              <div class="hospital-category mb-1">
+                <i class="fa-solid fa-at"style="color: #334d7a;"></i> 地址 {{this.address}}
               </div>
 
-              <div class="restaurant-category mb-1">
+              <div class="hospital-category mb-1">
                 <i class="fa-solid fa-phone" style="color: #334d7a;"></i> 電話 {{this.telephone}}
               </div>
 
-              <div class="restaurant-category mb-1">
+              <div class="hospital-category mb-1">
                 <i class="fa-regular fa-hospital" style="color: #334d7a;"></i> 是否提供急診服務： {{this.hasER}}
+              </div class="restaurant-category mb-1">
+
+              <div class="hospital-category mb-1 d-flex justify-content-end">
+                <i class="fa-solid fa-heart me-2" style="color: #f01919;"></i>
+                <i class="fa-regular fa-heart" style="color: #6b6b70;"></i>
               </div>
 
 
