@@ -16,9 +16,6 @@ app.set('view engine', 'hbs')
 app.use(methodOverride('_method'))
 app.use(routes)
 
-app.get('/', (req, res) => {
-  res.render('index')
-})
 
 app.listen(port, ()=> {
   console.log(`Express is listening on http://localhost:${port}`)
