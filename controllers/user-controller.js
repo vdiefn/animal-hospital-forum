@@ -5,15 +5,24 @@ const userController = {
     res.render('signup')
   },
   signUp: (req, res) => {
-    bcrypt.hash(req.body.password, 10)
+    if(req.body.password !== req.body.passwordCheck) throw new Error('Passwords do not match!')
+    const { name, email, password, passwordCheck } = req.body
+
+    User.findOne({ email })
+      .then(user => {
+        if(user) throw new Error('Email already exists!')
+        return bcrypt.hash(req.body.password, 10)
+    })
       .then(hash => User.create({
         name: req.body.name,
         email: req.body.email,
         password: hash
       }))
       .then(() => {
+        req.glash('success_message', '帳號註冊成功！')
         res.redirect('/signin')
       })
+      .catch(err => next(err))
   }
 }
 
