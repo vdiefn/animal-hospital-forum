@@ -20,7 +20,9 @@
     "express-session": "^1.17.3",
     "faker": "^5.5.3",
     "method-override": "^3.0.0",
-    "mongoose": "^7.0.4"
+    "mongoose": "^5.9.13",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "dotenv": "^16.0.3"

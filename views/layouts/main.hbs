@@ -14,24 +14,32 @@
   <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
       <a class="navbar-brand d-flex justify-content-evenly ms-5 fs-2 fw-bolder" href="#">動物醫院資訊</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <div class="navbar-nav me-auto mb-2 mb-lg-0 w-50">
-          <form class="d-flex" style="width: 500px;"role="search">
+          <form class="d-flex" style="width: 500px;" role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-secondary" type="submit"><i class="fa-solid fa-magnifying-glass" style="color: #2c4f8c;"></i></button>
+            <button class="btn btn-outline-secondary" type="submit"><i class="fa-solid fa-magnifying-glass"
+                style="color: #2c4f8c;"></i></button>
           </form>
         </div>
         <div class="d-flex justify-content-end me-5">
+          {{#if isAuthenticated}}
           <div class="d-flex align-items-center me-5">
-            <h6 class="d-flex align-items-center fw-bold mt-2">Hello, user</h6>
+            <div class="me-4">
+              <h5 class="d-flex align-items-center fw-bold mt-2" style="color:  #1f51a8;">Hello, {{ user.name }}</h5>
+            </div>
+            <a class="nav-link fs-5 fw-bold" href="/logout"><i class="fa-solid fa-arrow-right-from-bracket" style="color: #5179bd;"></i></a>
           </div>
+          {{else}}
           <div class="d-flex align-items-center">
-            <a class="nav-link fs-5 fw-bold" href="#"><i class="fa-solid fa-paw" style="color: #85a5db;"></i> 登入</a>
+            <a class="nav-link fs-5 fw-bold" href="/signin"><i class="fa-solid fa-paw" style="color: #85a5db;"></i> 登入</a>
           </div>
-          
+          {{/if}}
+  
         </div>
       </div>
     </div>
@@ -40,7 +48,7 @@
   <main role="main">
     <div class="album bg-light pt-5">
       <div class="container">
-        {{> messages }}
+        
         {{{body}}}
       </div>
     </div>

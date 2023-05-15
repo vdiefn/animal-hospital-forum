@@ -1,7 +1,11 @@
+const Hospital = require('../models/hospital')
 
 const hospitalController = {
   getHospitals: (req, res) => {
-    return res.render('hospitals')
+    Hospital.find()
+      .lean()
+      .then((hospitals) => res.render('hospitals', { hospitals }))
+      .catch(err => console.log(err))
   }
 }
 
