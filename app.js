@@ -7,6 +7,7 @@ const flash = require('connect-flash')
 const methodOverride = require('method-override')
 const routes = require('./routes')
 const usePassport = require('./config/passport')
+const handlebarsHelpers = require('./helpers/handlebars-helpers')
 const SESSION_SECRET = 'secret'
 
 if (process.env.NODE_ENV !== 'production') {
@@ -14,7 +15,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 require('./config/mongoose')
 
-app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs'}))
+app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs', helpers: handlebarsHelpers }))
 app.set('view engine', 'hbs')
 app.use(express.urlencoded({ extended: true}))
 app.use(session({ 
