@@ -8,6 +8,7 @@ const methodOverride = require('method-override')
 const routes = require('./routes')
 const usePassport = require('./config/passport')
 const handlebarsHelpers = require('./helpers/handlebars-helpers')
+const path = require('path')
 const SESSION_SECRET = 'secret'
 
 if (process.env.NODE_ENV !== 'production') {
@@ -24,6 +25,7 @@ app.use(session({
   saveUninitialized: true 
 }))
 app.use(methodOverride('_method'))
+app.use('/upload', express.static(path.join(__dirname, 'upload')))
 usePassport(app)
 app.use(flash())
 app.use((req, res, next) => {

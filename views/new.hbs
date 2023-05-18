@@ -1,0 +1,110 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-12 col-lg-10 col-xl-8 mx-auto">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title text-center fs-4 fw-bold" style="color: #2d4c80"><i class="fa-regular fa-hospital" style="color: #2d4c80;"></i> 新增醫院資訊</h5>
+          <hr>
+          <form method="POST" action="/hospitals" enctype="multipart/form-data">
+            <div class="row mb-3 g-2">
+              <label for="name" class="col-md-4 col-form-label" >
+                醫院名稱
+              </label>
+              <div class="col-md-8">
+                <input type="text" name="name" class="form-control" id="name" placeholder="請輸入醫院名稱" required>
+              </div>
+            </div>
+
+            <div class="row mb-3 g-2">
+              <label for="city" class="col-md-4 col-form-label">請選擇城市位置</label>
+              <div class="col-md-8">
+                <select id="city" class="form-control" name ="city">
+                  <option value="" selected disabled style="color: #a5a9b1;" required>縣市名稱</option>
+                  <option value="TPE">台北市</option>
+                  <option value="TXG">台中市</option>
+                  <option value="KEE">基隆市</option>
+                  <option value="TNN">台南市</option>
+                  <option value="KHH">高雄市</option>
+                  <option value="NWT">新北市</option>
+                  <option value="ILA">宜蘭縣</option>
+                  <option value="TAO">桃園市</option>
+                  <option value="CYI">嘉義市</option>
+                  <option value="HSQ">新竹縣</option>
+                  <option value="MIA">苗栗縣</option>
+                  <option value="NAN">南投縣</option>
+                  <option value="CHA">彰化縣</option>
+                  <option value="HSZ">新竹市</option>
+                  <option value="YUN">雲林縣</option>
+                  <option value="CYQ">嘉義縣</option>
+                  <option value="PIF">屏東縣</option>
+                  <option value="HUA">花蓮縣</option>
+                  <option value="TTT">台東縣</option>
+                  <option value="KIN">金門縣</option>
+                  <option value="PEN">澎湖縣</option>
+                  <option value="LIE">連江縣</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row mb-3 g-2">
+              <label for="image" class="col-md-4 col-form-label">
+                醫院照片
+              </label>
+              <div class="col-md-8">
+                <input type="file" name="image" class="form-control" id="image">
+              </div>
+            </div>
+
+            <div class="row mb-3 g-2">
+              <label for="address" class="col-md-4 col-form-label">
+                地址
+              </label>
+              <div class="col-md-8">
+                <input type="text" name="address" class="form-control" id="address" placeholder="請輸入醫院地址" required>
+              </div>
+            </div>
+
+            <div class="row mb-3 g-2">
+              <label for="telephone" class="col-md-4 col-form-label">
+                電話
+              </label>
+              <div class="col-md-8">
+                <input type="text" name="telephone" class="form-control" id="telephone" placeholder="請輸入電話" required>
+              </div>
+            </div>
+
+            <div class="row mb-3 g-2">
+              <label for="hasER" class="col-md-4 col-form-label">
+                是否提供急診服務
+              </label>
+              <div class="col-md-8">
+                <select name="hasER" id="hasER" class="form-control">
+                  <option value="" disable selected required>是否有急診</option>
+                  <option value="0">是</option>
+                  <option value="1">否</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row mb-3 g-2">
+              <label for="description" class="col-md-4 col-form-label">
+                醫院簡介
+              </label>
+              <div class="col-md-8">
+                <textarea type="text" name="description" class="form-control" id="description" rows="5" cols="20"
+                  required></textarea>
+              </div>
+            </div>
+
+            <div class="d-flex flex-row justify-content-end mb-2 mt-5 g-2">
+              <button class="btn btn-success ms-2" type="submit">Create</button>
+              <a href="/" type="button" class="btn btn-light ms-5">Back</a>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

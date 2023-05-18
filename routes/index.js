@@ -6,6 +6,7 @@ const admin = require('./modules/admin')
 const { generalErrorHandler } = require('../middleware/error-handler')
 const passport = require('passport')
 const { authenticator } = require('../middleware/auth')
+const upload = require('../middleware/multer')
 
 router.use('/admin', admin)
 
@@ -23,6 +24,12 @@ router.get('/logout', userController.logout)
 // 瀏覽所有hospital
 router.get('/hospitals', hospitalController.getHospitals)
 
+// 新增hospital
+router.get('/hospitals/new', hospitalController.createHospitalPage)
+router.post('/hospitals', upload.single('image'), hospitalController.createHospital)
+
+// 修改hospital
+// router.post('/hospitals/:id', upload.single('image'), hospitalController.editHospital)
 
 router.use('/', (req, res) => res.redirect('/hospitals'))
 
