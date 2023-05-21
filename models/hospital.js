@@ -25,6 +25,15 @@ const hospitalSchema = new Schema ({
   },
   hasER: {
     type: Boolean
+  },
+  openingHours: {
+    type: String
+  },
+  closingHours: {
+    type: String
+  },
+  website: {
+    tyep: String
   }
 })
 

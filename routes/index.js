@@ -28,6 +28,9 @@ router.get('/hospitals', hospitalController.getHospitals)
 router.get('/hospitals/new', hospitalController.createHospitalPage)
 router.post('/hospitals', upload.single('image'), hospitalController.createHospital)
 
+// 瀏覽特定hospital
+router.get('/hospitals/:id', hospitalController.getHospital)
+
 // 修改hospital
 // router.post('/hospitals/:id', upload.single('image'), hospitalController.editHospital)
 
