@@ -17,7 +17,7 @@
         <i class="fa-regular fa-circle-xmark fs-5" style="color: #a21607;"></i>
         {{/if}}
         </li>
-        <li><strong>網站:</strong> {{hospital.website}}</li>
+        <li><strong>網站：</strong> <a href="{{hospital.website}}" target="_blank">{{hospital.website}}</a></li>
       </ul>
     </div>
   </div>
@@ -26,4 +26,5 @@
   </div>
   <hr>
 </div>
+<a class="btn btn-outline-success" href="/hospitals/{{ hospital._id }}/edit">修改</a>
 <a class="btn btn-outline-secondary" href="javascript:history.back()">Back</a>

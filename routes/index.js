@@ -21,8 +21,9 @@ router.post('/signin', passport.authenticate('local', { successRedirect: '/', fa
 // 登出
 router.get('/logout', userController.logout)
 
-// 瀏覽所有hospital
-router.get('/hospitals', hospitalController.getHospitals)
+// 修改hospital
+router.get('/hospitals/:id/edit', hospitalController.editHospitalPage)
+router.post('/hospitals/:id/edit', upload.single('image'), hospitalController.editHospital)
 
 // 新增hospital
 router.get('/hospitals/new', hospitalController.createHospitalPage)
@@ -31,8 +32,10 @@ router.post('/hospitals', upload.single('image'), hospitalController.createHospi
 // 瀏覽特定hospital
 router.get('/hospitals/:id', hospitalController.getHospital)
 
-// 修改hospital
-// router.post('/hospitals/:id', upload.single('image'), hospitalController.editHospital)
+
+// 瀏覽所有hospital
+router.get('/hospitals', hospitalController.getHospitals)
+
 
 router.use('/', (req, res) => res.redirect('/hospitals'))
 
