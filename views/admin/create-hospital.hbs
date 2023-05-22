@@ -4,11 +4,12 @@
     <div class="col-12 col-lg-10 col-xl-8 mx-auto">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title text-center fs-4 fw-bold" style="color: #2d4c80"><i class="fa-regular fa-hospital" style="color: #2d4c80;"></i> 新增醫院資訊</h5>
+          <h5 class="card-title text-center fs-4 fw-bold" style="color: #2d4c80"><i class="fa-regular fa-hospital"
+              style="color: #2d4c80;"></i> 新增醫院資訊</h5>
           <hr>
-          <form method="POST" action="/hospitals" enctype="multipart/form-data">
+          <form method="POST" action="/admin/hospitals" enctype="multipart/form-data">
             <div class="row mb-3 g-2">
-              <label for="name" class="col-md-4 col-form-label" >
+              <label for="name" class="col-md-4 col-form-label">
                 醫院名稱
               </label>
               <div class="col-md-8">
@@ -19,7 +20,7 @@
             <div class="row mb-3 g-2">
               <label for="city" class="col-md-4 col-form-label">請選擇城市位置</label>
               <div class="col-md-8">
-                <select id="city" class="form-control" name ="city">
+                <select id="city" class="form-control" name="city">
                   <option value="" selected disabled style="color: #a5a9b1;" required>縣市名稱</option>
                   <option value="TPE">台北市</option>
                   <option value="TXG">台中市</option>
@@ -79,7 +80,8 @@
                 開門時間
               </label>
               <div class="col-md-8">
-                <input type="time" name="openingHours" class="form-control" id="openingHours" placeholder="請輸入開店時間" required>
+                <input type="time" name="openingHours" class="form-control" id="openingHours" placeholder="請輸入開店時間"
+                  required>
               </div>
             </div>
 
@@ -88,7 +90,8 @@
                 關門時間
               </label>
               <div class="col-md-8">
-                <input type="time" name="closingHours" class="form-control" id="closingHours" placeholder="請輸入閉店時間" required>
+                <input type="time" name="closingHours" class="form-control" id="closingHours" placeholder="請輸入閉店時間"
+                  required>
               </div>
             </div>
 
@@ -126,7 +129,7 @@
 
             <div class="d-flex flex-row justify-content-end mb-2 mt-5 g-2">
               <button class="btn btn-success ms-2" type="submit">Create</button>
-              <a href="/" type="button" class="btn btn-light ms-5">Back</a>
+              <a href="/admin/hospitals" type="button" class="btn btn-light ms-5">Back</a>
             </div>
 
           </form>

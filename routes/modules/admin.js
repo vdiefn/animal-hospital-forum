@@ -1,9 +1,15 @@
 const express = require('express')
 const router = express.Router()
 const adminController = require('../../controllers/admin-controller')
-const { authenticatedAdmin } = require('../../middleware/auth')
+const upload = require('../../middleware/multer')
 
-router.get('/hospitals', authenticatedAdmin, adminController.getHospitals)
+
+// 新增一筆資料
+router.get('/hospitals/create', adminController.createHospitalPage)
+router.post('/hospitals', upload.single('image'), adminController.createHospital)
+
+// 瀏覽總表
+router.get('/hospitals', adminController.getHospitals)
 
 router.use('/', (req,res) => res.redirect('/admin/hospitals'))
 

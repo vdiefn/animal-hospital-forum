@@ -5,10 +5,10 @@ const userController = require('../controllers/user-controller')
 const admin = require('./modules/admin')
 const { generalErrorHandler } = require('../middleware/error-handler')
 const passport = require('passport')
-const { authenticated } = require('../middleware/auth')
+const { authenticated, authenticatedAdmin } = require('../middleware/auth')
 const upload = require('../middleware/multer')
 
-router.use('/admin', admin)
+router.use('/admin', authenticatedAdmin, admin)
 
 // 註冊
 router.get('/signup', userController.signUpPage)

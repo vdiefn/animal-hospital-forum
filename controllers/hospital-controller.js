@@ -73,7 +73,7 @@ const hospitalController = {
       })
       .then(() => {
         req.flash('success_messages', '已成功更新醫院資訊！')
-        res.redirect('/hospitals')
+        res.redirect(`/hospitals/${id}`)
       })
   .catch(err => console.log(err))
   }
