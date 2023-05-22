@@ -5,7 +5,7 @@ const userController = require('../controllers/user-controller')
 const admin = require('./modules/admin')
 const { generalErrorHandler } = require('../middleware/error-handler')
 const passport = require('passport')
-const { authenticator } = require('../middleware/auth')
+const { authenticated } = require('../middleware/auth')
 const upload = require('../middleware/multer')
 
 router.use('/admin', admin)

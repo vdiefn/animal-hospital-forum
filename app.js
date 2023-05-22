@@ -7,6 +7,7 @@ const flash = require('connect-flash')
 const methodOverride = require('method-override')
 const routes = require('./routes')
 const usePassport = require('./config/passport')
+const { getUser } = require('./helpers/auth-helper')
 const handlebarsHelpers = require('./helpers/handlebars-helpers')
 const path = require('path')
 const SESSION_SECRET = 'secret'
@@ -30,7 +31,7 @@ usePassport(app)
 app.use(flash())
 app.use((req, res, next) => {
   res.locals.isAuthenticated = req.isAuthenticated()
-  res.locals.user = req.user
+  res.locals.user = getUser(req)
   res.locals.success_messages = req.flash('success_messages')
   res.locals.error_messages = req.flash('error_messages')
   res.locals.wrong_messages = req.flash('wrong_messages')  
