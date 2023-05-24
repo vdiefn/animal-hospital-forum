@@ -34,6 +34,13 @@ const adminController = {
         })
         .catch(err => next(err))
   },
+  getHospital: (req, res, next) => {
+    const id = req.params.id
+    return Hospital.findById(id)
+      .lean()
+      .then(hospital => res.render('hospital', { hospital }))
+      .catch(err => next(err))
+  }
 }
 
 module.exports = adminController

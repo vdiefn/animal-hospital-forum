@@ -8,6 +8,9 @@ const upload = require('../../middleware/multer')
 router.get('/hospitals/create', adminController.createHospitalPage)
 router.post('/hospitals', upload.single('image'), adminController.createHospital)
 
+// 瀏覽特定hospital
+router.get('/hospitals/:id', adminController.getHospital)
+
 // 瀏覽總表
 router.get('/hospitals', adminController.getHospitals)
 

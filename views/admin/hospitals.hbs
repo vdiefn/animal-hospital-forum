@@ -20,16 +20,16 @@
       <td>{{this.city}}</td>
       <td>
         <button type="button" class="btn btn-link">
-          <a class="btn btn-link link-primary" href="/admin/hospitals/{{this.id}}">
+          <a class="btn btn-link link-primary" href="/admin/hospitals/{{this._id}}">
             Show
           </a>
         </button>
         <button type="button" class="btn btn-link">
-          <a class="btn btn-link link-primary" href="/admin/hospitals/{{this.id}}/edit">
+          <a class="btn btn-link link-primary" href="/admin/hospitals/{{this._id}}/edit">
             Edit
           </a>
         </button>
-        <form action="/admin/hospitals/{{this.id}}?_method=DELETE" method="POST" style="display: inline;">
+        <form action="/admin/hospitals/{{this._id}}?_method=DELETE" method="POST" style="display: inline;">
           <button type="submit" class="btn btn-link link-danger">Delete</button>
         </form>
       </td>

@@ -1,0 +1,30 @@
+<div class="row mb-5">
+  <div class="col-md-12">
+    <h1>{{hospital.name}}</h1>
+  </div>
+  <div class="col-md-5">
+    <img class="img-responsive center-block mb-5" src="{{hospital.image}}"
+      style="width: 400px; transition: opacity 0.5s; opacity:0;" onload="this.style.opacity=1;">
+    <div class="well">
+      <ul class="list-unstyled">
+        <li><strong>電話:</strong> {{hospital.telephone}}</li>
+        <li><strong>地址:</strong> {{hospital.address}}</li>
+        <li><strong>營業時間:</strong> {{hospital.openingHours}} - {{hospital.closingHours}}</li>
+        <li><strong>是否提供急診服務:</strong>
+          {{#if hospital.hasER }}
+          <i class="fa-regular fa-circle-check fs-5" style="color: #115f07;"></i>
+          {{else}}
+          <i class="fa-regular fa-circle-xmark fs-5" style="color: #a21607;"></i>
+          {{/if}}
+        </li>
+        <li><strong>網站：</strong> <a href="{{hospital.website}}" target="_blank">{{hospital.website}}</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-7">
+    <p style="white-space: break-spaces; word-wrap: break-word">{{hospital.description}}</p>
+  </div>
+  <hr>
+</div>
+<a class="btn btn-outline-success" href="/hospitals/{{ hospital._id }}/edit">修改</a>
+<a class="btn btn-outline-secondary" href="javascript:history.back()">Back</a>
