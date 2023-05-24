@@ -1,0 +1,127 @@
+<div class="row mb-3 g-2">
+  <label for="name" class="col-md-4 col-form-label">
+    醫院名稱
+  </label>
+  <div class="col-md-8">
+    <input type="text" name="name" class="form-control" id="name" placeholder="請輸入醫院名稱" value="{{ hospital.name }}"
+      required>
+  </div>
+</div>
+
+<div class="row mb-3 g-2">
+  <label for="city" class="col-md-4 col-form-label">請選擇城市位置</label>
+  <div class="col-md-8">
+    <select id="city" class="form-control" name="city">
+      <option value="" selected disabled style="color: #a5a9b1;" required>縣市名稱</option>
+      <option value="TPE">台北市</option>
+      <option value="TXG">台中市</option>
+      <option value="KEE">基隆市</option>
+      <option value="TNN">台南市</option>
+      <option value="KHH">高雄市</option>
+      <option value="NWT">新北市</option>
+      <option value="ILA">宜蘭縣</option>
+      <option value="TAO">桃園市</option>
+      <option value="CYI">嘉義市</option>
+      <option value="HSQ">新竹縣</option>
+      <option value="MIA">苗栗縣</option>
+      <option value="NAN">南投縣</option>
+      <option value="CHA">彰化縣</option>
+      <option value="HSZ">新竹市</option>
+      <option value="YUN">雲林縣</option>
+      <option value="CYQ">嘉義縣</option>
+      <option value="PIF">屏東縣</option>
+      <option value="HUA">花蓮縣</option>
+      <option value="TTT">台東縣</option>
+      <option value="KIN">金門縣</option>
+      <option value="PEN">澎湖縣</option>
+      <option value="LIE">連江縣</option>
+    </select>
+  </div>
+</div>
+
+<div class="row mb-3 g-2">
+  <label for="image" class="col-md-4 col-form-label">
+    醫院照片
+  </label>
+  <div class="col-md-8">
+    <input type="file" name="image" class="form-control" id="image">
+  </div>
+</div>
+
+<div class="row mb-3 g-2">
+  <label for="address" class="col-md-4 col-form-label">
+    地址
+  </label>
+  <div class="col-md-8">
+    <input type="text" name="address" class="form-control" id="address" placeholder="請輸入醫院地址"
+      value="{{ hospital.address}}" required>
+  </div>
+</div>
+
+<div class="row mb-3 g-2">
+  <label for="telephone" class="col-md-4 col-form-label">
+    電話
+  </label>
+  <div class="col-md-8">
+    <input type="text" name="telephone" class="form-control" id="telephone" placeholder="請輸入電話"
+      value="{{ hospital.telephone}}" required>
+  </div>
+</div>
+
+<div class="row mb-3 g-2">
+  <label for="openingHours" class="col-md-4 col-form-label">
+    開門時間
+  </label>
+  <div class="col-md-8">
+    <input type="time" name="openingHours" class="form-control" id="openingHours" placeholder="請輸入開店時間"
+      value="{{ hospital.openingHours}}" required>
+  </div>
+</div>
+
+<div class="row mb-3 g-2">
+  <label for="closingHours" class="col-md-4 col-form-label">
+    關門時間
+  </label>
+  <div class="col-md-8">
+    <input type="time" name="closingHours" class="form-control" id="closingHours" placeholder="請輸入閉店時間"
+      value="{{ hospital.closingHours}}" required>
+  </div>
+</div>
+
+<div class="row mb-3 g-2">
+  <label for="website" class="col-md-4 col-form-label">
+    醫院網站
+  </label>
+  <div class="col-md-8">
+    <input type="website" name="website" class="form-control" id="website" placeholder="請輸入醫院網址"
+      value="{{hospital.website}}" required>
+  </div>
+</div>
+
+<div class="row mb-3 g-2">
+  <label for="hasER" class="col-md-4 col-form-label">
+    是否提供急診服務
+  </label>
+  <div class="col-md-8">
+    <select name="hasER" id="hasER" class="form-control">
+      <option value="" disable selected required>是否有急診</option>
+      <option value="true">是</option>
+      <option value="false">否</option>
+    </select>
+  </div>
+</div>
+
+<div class="row mb-3 g-2">
+  <label for="description" class="col-md-4 col-form-label">
+    醫院簡介
+  </label>
+  <div class="col-md-8">
+    <textarea type="text" name="description" class="form-control" id="description" rows="5" cols="20"
+      required>{{ hospital.description}}</textarea>
+  </div>
+</div>
+
+<div class="d-flex flex-row justify-content-end mb-2 mt-5 g-2">
+  <button class="btn btn-success ms-2" type="submit">Save</button>
+  <a href="javascript:history.back()" type="button" class="btn btn-light ms-5">Back</a>
+</div>

@@ -40,6 +40,42 @@ const adminController = {
       .lean()
       .then(hospital => res.render('hospital', { hospital }))
       .catch(err => next(err))
+  },
+  editHospitalPage: (req, res, next) => {
+    const id = req.params.id
+    Hospital.findById(id)
+      .lean()
+      .then((hospital) => res.render('admin/edit', { hospital }))
+      .catch(err => next(err))
+  },
+  editHospital: (req, res, next) => {
+    const { name, city, address, telephone, description, hasER, openingHours, closingHours, website } = req.body
+    const { file } = req
+    const id = req.params.id
+    Promise.all([
+      Hospital.findById(id),
+      localFileHandler(file)
+    ])
+      .then(([hospital, filePath]) => {
+        if (!hospital) throw new Error("Hospital didn't exist")
+        return hospital.updateOne({
+          name,
+          city,
+          address,
+          telephone,
+          description,
+          hasER,
+          openingHours,
+          closingHours,
+          website,
+          image: filePath || hospital.image
+        })
+      })
+      .then(() => {
+        req.flash('success_messages', '已成功更新醫院資訊！')
+        res.redirect(`/admin/hospitals/${id}`)
+      })
+      .catch(err => next(err))
   }
 }
 

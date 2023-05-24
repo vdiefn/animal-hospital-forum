@@ -23,7 +23,7 @@ router.get('/logout', userController.logout)
 
 // 修改hospital
 router.get('/hospitals/:id/edit', hospitalController.editHospitalPage)
-router.post('/hospitals/:id/edit', upload.single('image'), hospitalController.editHospital)
+router.put('/hospitals/:id', upload.single('image'), hospitalController.editHospital)
 
 // 新增hospital
 router.get('/hospitals/new', hospitalController.createHospitalPage)

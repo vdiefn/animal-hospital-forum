@@ -7,7 +7,7 @@
           <h5 class="card-title text-center fs-4 fw-bold" style="color: #2d4c80"><i class="fa-regular fa-hospital"
               style="color: #2d4c80;"></i> 修改醫院資訊</h5>
           <hr>
-          <form method="POST" action="/hospitals/{{ hospital._id }}/edit" enctype="multipart/form-data">
+          <form method="POST" action="/hospitals/{{ hospital._id }}?_method=PUT" enctype="multipart/form-data">
             <div class="row mb-3 g-2">
               <label for="name" class="col-md-4 col-form-label">
                 醫院名稱
