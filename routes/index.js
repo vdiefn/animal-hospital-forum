@@ -5,7 +5,7 @@ const userController = require('../controllers/user-controller')
 const admin = require('./modules/admin')
 const { generalErrorHandler } = require('../middleware/error-handler')
 const passport = require('passport')
-const { authenticated, authenticatedAdmin } = require('../middleware/auth')
+const { authenticator, authenticatedAdmin } = require('../middleware/auth')
 const upload = require('../middleware/multer')
 
 router.use('/admin', authenticatedAdmin, admin)
@@ -36,7 +36,8 @@ router.get('/hospitals/:id', hospitalController.getHospital)
 // 瀏覽所有hospital
 router.get('/hospitals', hospitalController.getHospitals)
 
-
+// 瀏覽個人資料
+router.get('/users/:id', authenticator, userController.getProfile)
 
 router.use('/', (req, res) => res.redirect('/hospitals'))
 

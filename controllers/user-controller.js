@@ -1,5 +1,6 @@
 const bcrypt = require('bcryptjs')
 const User = require('../models/user')
+const { getUser } = require('../helpers/auth-helper')
 
 const userController = {
   signUpPage: (req, res) => {
@@ -59,13 +60,19 @@ const userController = {
     })
   },
   getProfile: (req, res, next) => {
-
+    const id = getUser(req)._id
+    return User.findById(id)
+      .lean()
+      .then((user) => {
+        return res.render('profile', { user })
+      })
+      .catch(err => next(err))
   },
   editProfilePage: (req, res, next) => {
 
   },
   editProfile: (req, res, next) => {
-    
+
   }
 
 }
