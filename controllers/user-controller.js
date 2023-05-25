@@ -57,7 +57,17 @@ const userController = {
       req.flash('success_messages', '你已經成功登出！')
       res.redirect('/hospitals')
     })
+  },
+  getProfile: (req, res, next) => {
+
+  },
+  editProfilePage: (req, res, next) => {
+
+  },
+  editProfile: (req, res, next) => {
+    
   }
+
 }
 
 

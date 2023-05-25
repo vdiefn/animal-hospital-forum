@@ -27,4 +27,8 @@
   <hr>
 </div>
 <a class="btn btn-outline-success" href="/hospitals/{{ hospital._id }}/edit">修改</a>
+<form action="/admin/hospitals/{{this._id}}?_method=DELETE" method="POST" style="display: inline;">
+  <button type="submit" class="btn btn-outline-danger link-danger"
+    onclick="return confirm(`確定要刪除 {{ this.name }} 嗎？`)">Delete</button>
+</form>
 <a class="btn btn-outline-secondary" href="javascript:history.back()">Back</a>

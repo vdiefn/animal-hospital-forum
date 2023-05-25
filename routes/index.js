@@ -37,6 +37,7 @@ router.get('/hospitals/:id', hospitalController.getHospital)
 router.get('/hospitals', hospitalController.getHospitals)
 
 
+
 router.use('/', (req, res) => res.redirect('/hospitals'))
 
 router.use('/', generalErrorHandler)

@@ -15,6 +15,9 @@ router.put('/hospitals/:id', upload.single('image'), adminController.editHospita
 // 瀏覽特定hospital
 router.get('/hospitals/:id', adminController.getHospital)
 
+// 刪除hospital
+router.delete('/hospitals/:id', adminController.deleteHospital)
+
 // 瀏覽總表
 router.get('/hospitals', adminController.getHospitals)
 

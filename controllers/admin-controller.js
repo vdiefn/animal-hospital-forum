@@ -38,14 +38,14 @@ const adminController = {
     const id = req.params.id
     return Hospital.findById(id)
       .lean()
-      .then(hospital => res.render('hospital', { hospital }))
+      .then(hospital => res.render('admin/hospital', { hospital }))
       .catch(err => next(err))
   },
   editHospitalPage: (req, res, next) => {
     const id = req.params.id
     Hospital.findById(id)
       .lean()
-      .then((hospital) => res.render('admin/edit', { hospital }))
+      .then((hospital) => res.render('/admin/edit', { hospital }))
       .catch(err => next(err))
   },
   editHospital: (req, res, next) => {
@@ -75,6 +75,16 @@ const adminController = {
         req.flash('success_messages', '已成功更新醫院資訊！')
         res.redirect(`/admin/hospitals/${id}`)
       })
+      .catch(err => next(err))
+  },
+  deleteHospital: (req, res, next) => {
+    const id = req.params.id
+    Hospital.findById(id)
+      .then(hospital => {
+        if (!hospital) throw new Error("Hospital didn't exist!")
+        return hospital.remove()
+        })
+      .then(() => res.redirect('/admin/hospitals'))
       .catch(err => next(err))
   }
 }
