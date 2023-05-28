@@ -1,0 +1,63 @@
+
+{{> messages}}
+<div class="container d-flex justify-content-center mb-5">
+  <div class="card mt-5" style="width: 70%">
+    <div class="card-header d-flex justify-content-center align-items-center">
+      <h5 class="d-flex mt-2">修改個人資料</h5>
+    </div>
+    <div class="d-flex flex-row">
+      <div style="width: 42%;">
+        <div class="card" style="height: 26rem; width: 18rem; border-style:none; "> 
+          <img src="https://i.imgur.com/TuAWiEx.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <div class="d-flex mt-1">
+              <p class="card-text">假如你馴養我，我們就彼此互相需要。你對於我將是世界上唯一的，我對於你也將是世界上唯一的。
+            </div>
+            </p>
+            <div class="d-flex justify-content-end">
+              <p>—— 小王子</p>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      
+      <div class="card-body" style="width: 60%; border: 1px solid #EDEDED;">
+        
+        <form class="form-signup" action="/users/{{user._id}}?_method=PUT" method="POST" 
+        enctype="multipart/form-data" style="width: 100%;">
+          
+          <div class="form-row mb-2">
+            <label class="form-label" for="name">Name</label>
+            <input type="text" id="name" name="name" class="form-control" placeholder="Name" required value="{{ user.name }}">
+          </div>
+            
+          <div class="form-row mb-2">
+            <label class="form-label" for="image">Image</label>
+            <input class="form-control" type="file" class="form-control-file" id="image" name="image">
+          </div>
+
+          <div class="form-row mb-2">
+            <label class="form-label" for="email">Email</label>
+            <input type="text" id="email" name="email" class="form-control" placeholder="Email" required value="{{ user.email }}">
+          </div>
+
+          <div class="form-row mb-2">
+            <label class="form-label" for="password">Password</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Password">
+          </div>
+          <div class="form-row mb-2">
+            <label class="form-label" for="passwordCheck">Password Check</label>
+            <input type="password" id="passwordCheck" name="passwordCheck" class="form-control"
+              placeholder="Password Check">
+          </div>
+          
+          <div class="d-flex justify-content-end">
+            <button class="btn btn-outline-success btn-sm btn-block me-2" type="submit">Edit</button>
+            <a class="btn btn-outline-secondary btn-sm" href="javascript:history.back()">Back</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -18,13 +18,8 @@
           {{#if isAuthenticated}}
             
           <div class="d-flex align-items-center me-5">
-            {{#if user.isAdmin }}
             <div class="me-4">
-              <a href="/admin/hospitals" class="nav-link">Admin 後台</a>
-            </div>
-            {{/if}}
-            <div class="me-4">
-              <h5 class="d-flex align-items-center fw-bold mt-2" style="color:  #1f51a8;"><a href="/users/{{user._id}}"> Hello, {{ user.name }}</a></h5>
+              <h5 class="d-flex align-items-center fw-bold mt-2" ><a href="/users/{{user._id}}" style="text-decoration: none; color: #5179bd;"> Hello, {{ user.name }}</a></h5>
             </div>
             <a class="nav-link fs-5 fw-bold" href="/logout"><i class="fa-solid fa-arrow-right-from-bracket"
                 style="color: #5179bd;"></i></a>

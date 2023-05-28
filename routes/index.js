@@ -36,8 +36,10 @@ router.get('/hospitals/:id', hospitalController.getHospital)
 // 瀏覽所有hospital
 router.get('/hospitals', hospitalController.getHospitals)
 
-// 瀏覽個人資料
+// 瀏覽/修改個人資料
 router.get('/users/:id', authenticator, userController.getProfile)
+router.get('/users/:id/edit', authenticator, userController.editProfilePage)
+router.put('/users/:id', authenticator, upload.single('image'), userController.editProfile)
 
 router.use('/', (req, res) => res.redirect('/hospitals'))
 

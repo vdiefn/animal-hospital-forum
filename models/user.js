@@ -21,6 +21,10 @@ const userSchema = new Schema({
   createAt: {
     type: Date,
     default: Date.now
+  },
+  image: {
+    type: String,
+    default: "https://img.freepik.com/free-icon/user_318-804790.jpg"
   }  
 })
 

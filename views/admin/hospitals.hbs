@@ -1,7 +1,21 @@
-<h1>網站後台</h1>
-<a href='/admin/hospitals/create'>
-  <button type="button" class="btn btn-outline-primary">新增醫院</button>
-</a>
+<div class="d-flex justify-content-start align-items-center">
+  <div class="d-flex">
+    <h4 class="fw-bold" style="color:#0F0F0F;">網站後台</h4>
+  </div>
+  {{#if user.isAdmin }}
+  <div class="ms-5">
+    <a class="btn btn-link ps-2 pe-2" href="/users/{{user._id}}" style="text-decoration:none; ">
+      <h5 class="fw-bold" style="color: #5179bd;">前台管理</h5>
+    </a>
+  </div>
+  {{/if}}
+</div>
+<div class="d-flex mt-2">
+  <a href='/admin/hospitals/create'>
+    <button type="button" class="btn btn-outline-primary">新增醫院</button>
+  </a>
+</div>
+
 <br />
 <br />
 <table class="table align-middle">
