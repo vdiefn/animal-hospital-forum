@@ -32,6 +32,8 @@ router.post('/hospitals', upload.single('image'), hospitalController.createHospi
 // 瀏覽特定hospital
 router.get('/hospitals/:id', hospitalController.getHospital)
 
+// 搜尋醫院
+router.get('/search', hospitalController.searchHospital)
 
 // 瀏覽所有hospital
 router.get('/hospitals', hospitalController.getHospitals)
@@ -40,6 +42,8 @@ router.get('/hospitals', hospitalController.getHospitals)
 router.get('/users/:id', authenticator, userController.getProfile)
 router.get('/users/:id/edit', authenticator, userController.editProfilePage)
 router.put('/users/:id', authenticator, upload.single('image'), userController.editProfile)
+
+
 
 router.use('/', (req, res) => res.redirect('/hospitals'))
 

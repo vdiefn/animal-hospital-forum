@@ -76,6 +76,21 @@ const hospitalController = {
         res.redirect(`/hospitals/${id}`)
       })
   .catch(err => console.log(err))
+  },
+  searchHospital: (req, res, next) => {
+    const keyword = req.query.keyword.trim().toLowerCase()
+
+    Hospital.find()
+      .lean()
+      .then(hospitals => {
+        const result = hospitals.filter(hospital => {
+          return hospital.name.toLowerCase().includes(keyword.toLowerCase()) ||
+            hospital.city.toLowerCase().includes(keyword.toLowerCase()) ||
+            hospital.address.toLowerCase().includes(keyword.toLowerCase())
+        })
+        res.render('hospitals', { hospitals : result, keyword })
+    })
+      .catch(err => next(err))
   }
 }
 

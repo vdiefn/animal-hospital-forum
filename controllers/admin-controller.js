@@ -45,7 +45,7 @@ const adminController = {
     const id = req.params.id
     Hospital.findById(id)
       .lean()
-      .then((hospital) => res.render('/admin/edit', { hospital }))
+      .then((hospital) => res.render('admin/edit', { hospital }))
       .catch(err => next(err))
   },
   editHospital: (req, res, next) => {
