@@ -22,11 +22,11 @@ router.post('/signin', passport.authenticate('local', { successRedirect: '/', fa
 router.get('/logout', userController.logout)
 
 // 修改hospital
-router.get('/hospitals/:id/edit', hospitalController.editHospitalPage)
+router.get('/hospitals/:id/edit', authenticator, hospitalController.editHospitalPage)
 router.put('/hospitals/:id', upload.single('image'), hospitalController.editHospital)
 
 // 新增hospital
-router.get('/hospitals/new', hospitalController.createHospitalPage)
+router.get('/hospitals/new', authenticator, hospitalController.createHospitalPage)
 router.post('/hospitals', upload.single('image'), hospitalController.createHospital)
 
 // 瀏覽特定hospital
@@ -42,7 +42,6 @@ router.get('/hospitals', hospitalController.getHospitals)
 router.get('/users/:id', authenticator, userController.getProfile)
 router.get('/users/:id/edit', authenticator, userController.editProfilePage)
 router.put('/users/:id', authenticator, upload.single('image'), userController.editProfile)
-
 
 
 router.use('/', (req, res) => res.redirect('/hospitals'))

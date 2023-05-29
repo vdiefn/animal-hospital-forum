@@ -18,8 +18,14 @@ router.get('/hospitals/:id', adminController.getHospital)
 // 刪除hospital
 router.delete('/hospitals/:id', adminController.deleteHospital)
 
-// 瀏覽總表
+// 瀏覽醫院總表
 router.get('/hospitals', adminController.getHospitals)
+
+// 瀏覽使用者總表
+router.get('/users', adminController.getUsers)
+
+// 瀏覽特定使用者
+router.get('/users/:id', adminController.getUser)
 
 router.use('/', (req,res) => res.redirect('/admin/hospitals'))
 

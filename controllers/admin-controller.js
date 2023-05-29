@@ -1,4 +1,5 @@
 const Hospital = require('../models/hospital')
+const User = require('../models/user')
 const { localFileHandler } = require('../helpers/file-helpers')
 
 const adminController = {
@@ -85,6 +86,20 @@ const adminController = {
         return hospital.remove()
         })
       .then(() => res.redirect('/admin/hospitals'))
+      .catch(err => next(err))
+  },
+  getUsers: (req, res, next) => {
+    User.find()
+      .lean()
+      .then(users => res.render('admin/users', { users }))
+      .catch(err => next(err))
+  },
+  getUser: (req, res, next) => {
+    const id = req.params.id
+    return User.findById(id)
+      .lean()
+      .then(user => res.render('admin/user', { user }))
+    
       .catch(err => next(err))
   }
 }

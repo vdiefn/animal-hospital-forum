@@ -5,7 +5,7 @@ const authenticator = (req, res, next) => {
     return next()
   }
   req.flash('warning_messages', '請先登入才能使用！')
-  res.redirect('back')
+  res.redirect('/signin')
 }
 
 const authenticatedAdmin = (req, res, next) => {
