@@ -101,6 +101,16 @@ const adminController = {
       .then(user => res.render('admin/user', { user }))
     
       .catch(err => next(err))
+  },
+  deleteUser: (req, res, next) => {
+    const id = req.params.id
+    User.findById(id)
+    .then(user => {
+      if (!user) throw new Error ("User did not exist!")
+      return user.remove()
+    })
+    .then(() => res.redirect('/admin/users'))
+    .catch(err => next(err))
   }
 }
 

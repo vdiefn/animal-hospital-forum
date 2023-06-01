@@ -27,6 +27,9 @@ router.get('/users', adminController.getUsers)
 // 瀏覽特定使用者
 router.get('/users/:id', adminController.getUser)
 
+// 刪除使用者
+router.delete('/users/:id', adminController.deleteUser)
+
 router.use('/', (req,res) => res.redirect('/admin/hospitals'))
 
 module.exports = router

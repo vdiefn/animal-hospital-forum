@@ -4,48 +4,37 @@ const { getUser } = require('../helpers/auth-helper')
 const { localFileHandler } = require('../helpers/file-helpers')
 
 const userController = {
-  signUpPage: (req, res) => {
+  signUpPage: (req, res, next) => {
     res.render('signup')
   },
-  signUp: (req, res) => {
+  signUp: (req, res, next) => {
     const { name, email, password, passwordCheck } = req.body
     const errors = []
 
-    if (!name || !email || !password || !passwordCheck) {
-      errors.push({ message: '所有欄位都是必填。' })
-    }
+    if (!name || !email || !password || !passwordCheck) throw new Error('所有欄位都是必填的！')
+    if (password !== passwordCheck) throw new Error('密碼與確認密碼不相符！')
 
-    if (password !== passwordCheck) {
-      errors.push({ message: '密碼與確認密碼不相符！' })
-    }
-
-    if (errors.length) {
-      return res.render('signup', {
-        errors,
-        name,
-        email
+    return Promise.all([
+      User.findOne({ email }),
+      User.findOne({ name })
+    ])
+    .then(([emailCheck, nameCheck]) => {
+      if (emailCheck) throw new Error('信箱已被註冊！')
+      if (nameCheck) throw new Error('名稱已被使用！')
+      return bcrypt.hash(password, 10)
       })
-    }
-    User.findOne({ email }).then(user => {
-      if (user) {
-        errors.push({ message: '這個email已經註冊過了！'})
-        return res.render('signup', {
-          errors,
-          name
-        })
-      }
-      return bcrypt
-        .genSalt(10)
-        .then(salt => bcrypt.hash(password, salt))
-        .then(hash => User.create({
-          name: req.body.name,
-          email: req.body.email,
-          password: hash
-        }))
-      .then(() =>  res.redirect('/signin'))
-      .catch(err => console.log(err))
+    .then(hash => {
+      return User.create({
+        name: req.body.name,
+        email: req.body.email,
+        password: hash
+      })
     })
-    .catch(err => console.log(err))
+      .then(() => {
+        req.flash('success_messages', '成功註冊帳號！')  
+        res.redirect('/signin')
+      })
+      .catch(err => next(err))
   },
   signInPage: (req, res) => {
     res.render('signin')
@@ -56,7 +45,7 @@ const userController = {
   logout: (req, res) => {
     req.logout(function(err){
       if (err) { return next(err)}
-      req.flash('success_messages', '你已經成功登出！')
+      req.flash('success_messages', '您已經成功登出！')
       res.redirect('/hospitals')
     })
   },
