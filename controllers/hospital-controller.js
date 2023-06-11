@@ -3,17 +3,17 @@ const { localFileHandler } = require('../helpers/file-helpers')
 
 const hospitalController = {
   getHospitals: (req, res) => {
-    Hospital.find()
-      .lean()
-      .then((hospitals) => res.render('hospitals', { hospitals }))
-      .catch(err => console.log(err))
+    return Hospital.find()
+    .lean()
+    .then(hospitals => res.render('hospitals', { hospitals }))
+    .catch(err => console.log(err))
   },
   createHospitalPage: (req, res) => {
     return res.render('create')
   },
   createHospital: (req, res) => {
     const { name, city, address, telephone, description, website, openingHours, closingHours, hasER } = req.body
-    if (!name ) throw new Error('必填資料！')
+    if (!name) throw new Error('必填資料！')
     const { file } = req
     localFileHandler(file)
       .then(filePath => Hospital.create({
@@ -21,7 +21,7 @@ const hospitalController = {
         city,
         address,
         telephone,
-        hasER, 
+        hasER,
         website,
         openingHours,
         closingHours,

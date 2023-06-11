@@ -12,29 +12,39 @@
   <label for="city" class="col-md-4 col-form-label">請選擇城市位置</label>
   <div class="col-md-8">
     <select id="city" class="form-control" name="city">
-      <option value="" disabled style="color: #a5a9b1;" disabled required>縣市名稱</option>
-      <option value="台北市" {{#ifCond hospital.city "台北市" }} selected {{/ifCond}}>台北市</option>
-      <option value="台中市" {{#ifCond hospital.city "台中市" }} selected {{/ifCond}}>台中市</option>
-      <option value="基隆市" {{#ifCond hospital.city "基隆市" }} selected {{/ifCond}}>基隆市</option>
-      <option value="台南市" {{#ifCond hospital.city "台南市" }} selected {{/ifCond}}>台南市</option>
-      <option value="高雄市" {{#ifCond hospital.city "高雄市" }} selected {{/ifCond}}>高雄市</option>
-      <option value="新北市" {{#ifCond hospital.city "新北市" }} selected {{/ifCond}}>新北市</option>
-      <option value="宜蘭縣" {{#ifCond hospital.city "宜蘭縣" }} selected {{/ifCond}}>宜蘭縣</option>
-      <option value="桃園市" {{#ifCond hospital.city "桃園市" }} selected {{/ifCond}}>桃園市</option>
-      <option value="嘉義市" {{#ifCond hospital.city "嘉義市" }} selected {{/ifCond}}>嘉義市</option>
-      <option value="新竹縣" {{#ifCond hospital.city "新竹縣" }} selected {{/ifCond}}>新竹縣</option>
-      <option value="苗栗縣" {{#ifCond hospital.city "苗栗縣" }} selected {{/ifCond}}>苗栗縣</option>
-      <option value="南投縣" {{#ifCond hospital.city "南投縣" }} selected {{/ifCond}}>南投縣</option>
-      <option value="彰化縣" {{#ifCond hospital.city "彰化縣" }} selected {{/ifCond}}>彰化縣</option>
-      <option value="新竹市" {{#ifCond hospital.city "新竹市" }} selected {{/ifCond}}>新竹市</option>
-      <option value="雲林縣" {{#ifCond hospital.city "雲林縣" }} selected {{/ifCond}}>雲林縣</option>
-      <option value="嘉義縣" {{#ifCond hospital.city "嘉義縣" }} selected {{/ifCond}}>嘉義縣</option>
-      <option value="屏東縣" {{#ifCond hospital.city "屏東縣" }} selected {{/ifCond}}>屏東縣</option>
-      <option value="花蓮縣" {{#ifCond hospital.city "花蓮縣" }} selected {{/ifCond}}>花蓮縣</option>
-      <option value="台東縣" {{#ifCond hospital.city "台東縣" }} selected {{/ifCond}}>台東縣</option>
-      <option value="金門縣" {{#ifCond hospital.city "金門縣" }} selected {{/ifCond}}>金門縣</option>
-      <option value="澎湖縣" {{#ifCond hospital.city "澎湖縣" }} selected {{/ifCond}}>澎湖縣</option>
-      <option value="連江縣" {{#ifCond hospital.city "連江縣" }} selected {{/ifCond}}>連江縣</option>
+      <option value="" disabled style="color: #a5a9b1;" required>縣市名稱</option>
+      <optgroup label="北區(新竹以北)">
+        <option value="台北市" {{#ifCond hospital.city "台北市" }} selected {{/ifCond}}>台北市</option>
+        <option value="新北市" {{#ifCond hospital.city "新北市" }} selected {{/ifCond}}>新北市</option>
+        <option value="基隆市" {{#ifCond hospital.city "基隆市" }} selected {{/ifCond}}>基隆市</option>
+        <option value="桃園市" {{#ifCond hospital.city "桃園市" }} selected {{/ifCond}}>桃園市</option>
+        <option value="新竹市" {{#ifCond hospital.city "新竹市" }} selected {{/ifCond}}>新竹市</option>
+        <option value="新竹縣" {{#ifCond hospital.city "新竹縣" }} selected {{/ifCond}}>新竹縣</option>
+        <option value="宜蘭縣" {{#ifCond hospital.city "宜蘭縣" }} selected {{/ifCond}}>宜蘭縣</option>
+      </optgroup>
+      <optgroup label="中區(苗中彰投)">
+        <option value="苗栗縣" {{#ifCond hospital.city "台中市" }} selected {{/ifCond}}>台中市</option>
+        <option value="台中市" {{#ifCond hospital.city "苗栗縣" }} selected {{/ifCond}}>苗栗縣</option>
+        <option value="彰化縣" {{#ifCond hospital.city "彰化縣" }} selected {{/ifCond}}>彰化縣</option>
+        <option value="南投縣" {{#ifCond hospital.city "南投縣" }} selected {{/ifCond}}>南投縣</option>
+      </optgroup>
+      <optgroup label="南區(雲嘉南高屏)">
+        <option value="雲林縣" {{#ifCond hospital.city "雲林縣" }} selected {{/ifCond}}>雲林縣</option>
+        <option value="嘉義縣" {{#ifCond hospital.city "嘉義縣" }} selected {{/ifCond}}>嘉義縣</option>
+        <option value="嘉義市" {{#ifCond hospital.city "嘉義市" }} selected {{/ifCond}}>嘉義市</option>
+        <option value="台南市" {{#ifCond hospital.city "台南市" }} selected {{/ifCond}}>台南市</option>
+        <option value="高雄市" {{#ifCond hospital.city "高雄市" }} selected {{/ifCond}}>高雄市</option>
+        <option value="屏東縣" {{#ifCond hospital.city "屏東縣" }} selected {{/ifCond}}>屏東縣</option>
+      </optgroup>
+      <optgroup label="東區(花蓮台東)">
+        <option value="花蓮縣" {{#ifCond hospital.city "花蓮縣" }} selected {{/ifCond}}>花蓮縣</option>
+        <option value="台東縣" {{#ifCond hospital.city "台東縣" }} selected {{/ifCond}}>台東縣</option>
+      </optgroup>
+      <optgroup label="離島">
+        <option value="澎湖縣" {{#ifCond hospital.city "澎湖縣" }} selected {{/ifCond}}>澎湖縣</option>
+        <option value="金門縣" {{#ifCond hospital.city "金門縣" }} selected {{/ifCond}}>金門縣</option>
+        <option value="連江縣" {{#ifCond hospital.city "連江縣" }} selected {{/ifCond}}>連江縣</option>
+      </optgroup>
     </select>
   </div>
 </div>

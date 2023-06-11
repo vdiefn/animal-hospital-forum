@@ -1,4 +1,6 @@
-
+<div class="d-flex justify-content-start">
+  
+</div>
 <!-- Hospital list -->
 <div class="container mt-5 mb-5">
   
@@ -12,15 +14,19 @@
         新增醫院</a>
       </div>
     </div>
- 
+
     <div class="col-md-12 col-12 mx-auto">
       {{> messages}}
+      
       <div class="row row-cols-sm-4">
         {{#each hospitals}}
         <!-- The First Hospital -->
         <a href="./hospitals/{{this._id}}" class="text-secondary" style="text-decoration:none;">
-          <div class="card mb-3" style="width: 310px; height: 450px;">
-            <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}" width="300px;" height= "550px">
+          <div class="card mb-3" style="width: 310px; height: 420px;">
+            
+            <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}" width=" 200" height="220" style="">
+            
+            
 
             <div class="card-body p-3">
               <h6 class="card-title mb-1 fs-6 fw-bolder" style=" text-decoration: none;">{{this.name}}</h6>
@@ -41,10 +47,6 @@
                 {{/if}}
               </div class="restaurant-category mb-1">
 
-              <div class="hospital-category mt-4 d-flex justify-content-end">
-                <i class="fa-solid fa-heart me-2" style="color: #f01919;"></i>
-                <i class="fa-regular fa-heart" style="color: #6b6b70;"></i>
-              </div>
             </div>
           </div>
         </a>

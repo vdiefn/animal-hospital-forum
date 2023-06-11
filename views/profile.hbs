@@ -1,38 +1,44 @@
-{{> messages}}
-<div class="d-flex align-items-center mt-3 ms-3 me-4">
-  <h4 class="fw-bold" style="color:#0F0F0F;">使用者資訊</h4>
-  {{#if user.isAdmin }}
-  <div class="ms-5">
-    <a class="btn btn-link ps-2 pe-2" href="/admin/hospitals" style="text-decoration:none; "><h5 class="fw-bold" style="color: #5179bd;">後台管理</h5></a>
-  </div>
-  {{/if}}
-</div>
-<div class="container mb-5 mt-3" >
-  <div class="row">
-    <div class="col-md-2">
-      <img class="d-flex justify-content-center align-items-center" src="{{user.image}}"
-        style="width: 210px; height:200px; border:5px solid #D6D6FF; border-radius: 30px;" onload="this.style.opacity=1;">
+<div class="container">
+  {{> messages}}
+  <div class="d-flex align-items-center mt-3 ms-3 me-4">
+    <h4 class="fw-bold" style="color:#0F0F0F;">使用者資訊</h4>
+    {{#if user.isAdmin }}
+    <div class="ms-5">
+      <a class="btn btn-link ps-2 pe-2" href="/admin/hospitals" style="text-decoration:none; ">
+        <h5 class="fw-bold" style="color: #5179bd;">後台管理</h5>
+      </a>
     </div>
-    <div class="col-md-4 mt-3 ms-3">
-      <div class="d-flex">
-        <h5>名稱：</h5>
-        <h4>{{user.name}}</h4>
+    {{/if}}
+  </div>
+  <div class="container mb-5 mt-3">
+    <div class="row">
+      <div class="col-md-2">
+        <img class="d-flex justify-content-center align-items-center" src="{{user.image}}"
+          style="width: 210px; height:200px; border:5px solid #D6D6FF; border-radius: 30px;"
+          onload="this.style.opacity=1;">
       </div>
-      <div class="d-flex">
+      <div class="col-md-4 mt-3 ms-3">
         <div class="d-flex">
-          <h5>Email：</h5>
-          <h4>{{user.email}}</h4>
+          <h5>名稱：</h5>
+          <h4>{{user.name}}</h4>
         </div>
-      </div>
-        
-      <div class="d-flex justify-content-end mt-5 mb-3">
-        <a class="btn btn-outline-primary btn-sm" href="/users/{{user._id}}/edit">Edit</a>
-        <div class="ms-2">
-          <a class="btn btn-outline-secondary btn-sm" href="javascript:history.back()">Back</a>
+        <div class="d-flex">
+          <div class="d-flex">
+            <h5>Email：</h5>
+            <h4>{{user.email}}</h4>
+          </div>
+        </div>
+  
+        <div class="d-flex justify-content-end mt-5 mb-3">
+          <a class="btn btn-outline-primary btn-sm" href="/users/{{user._id}}/edit">Edit</a>
+          <div class="ms-2">
+            <a class="btn btn-outline-secondary btn-sm" href="javascript:history.back()">Back</a>
+          </div>
         </div>
       </div>
     </div>
+  
+    <hr>
   </div>
- 
-  <hr>
 </div>
+

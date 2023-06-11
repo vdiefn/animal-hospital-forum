@@ -1,13 +1,14 @@
 const mongoose = require('mongoose')
 const db = require('../../config/mongoose')
 const Hospital = require('../hospital')
+
 const faker = require('faker')
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
 
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
 
 // const db = mongoose.connection
 
@@ -36,7 +37,7 @@ db.once('open', () => {
     },
     {
       name: 'Hospital3',
-      city: '新北市',
+      city: '基隆市',
       address: faker.address.streetAddress(),
       telephone: faker.phone.phoneNumber(),
       description: faker.lorem.text(),
@@ -63,5 +64,5 @@ db.once('open', () => {
     }
   )
   
-  console.log('done')
+  console.log('hospitalSeeder done')
 })
