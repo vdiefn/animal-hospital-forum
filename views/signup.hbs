@@ -2,22 +2,23 @@
   {{> messages}}
 </div>
 <div class="container d-flex justify-content-center mb-5 mt-2">     
-  <div class="card" style="width: 70%">
+  <div class="card" style="width: 70%;" >
     <div class="card-header d-flex justify-content-center">
       <h5>Sign Up</h5>
     </div>
     <div class="d-flex flex-row">
       <div style="width: 40%">
-        <div class="card" style="height: 25rem; width: 18rem;">
-          <img src="https://cdn2.ettoday.net/images/1950/1950426.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.
+        <div class="card" style="height: 28rem; width: 18rem; border-style: none;" >
+          <img src="https://cdn2.ettoday.net/images/1950/1950426.jpg" style="border-radius: 0 0 0 10px; " class="card-img-top" alt="...">
+          <div class="card-body mt-5">
+            <p class="card-text">「寵我，愛我，餵飽我，
+            </p>
+            <p class="card-text text-end">不許嫌棄我。」
             </p>
           </div>
         </div>
       </div>
-      <div class="card-body" style="width: 60%">
+      <div class="card-body" style="width: 60%; border-left:1px solid #E8E8E8;">
         
         <form class="form-signup" action="/signup" method="POST" style="width: 100%;">
           <div class="form-row mb-3">
@@ -39,11 +40,13 @@
           </div>
           <button class="btn btn-outline-primary btn-block" type="submit">Submit</button>
         </form>
+        <div class="me-3 text-end">
+          <p>Have An Account? <a href="/signin"> Sign In</a></p>
+        </div>
       </div>
+      
     </div>
    
-    <div class="me-3 text-end">
-      <p>Have An Account? <a href="/signin"> Sign In</a></p>
-    </div>
+    
   </div>
 </div>

@@ -4,9 +4,9 @@ const { localFileHandler } = require('../helpers/file-helpers')
 const hospitalController = {
   getHospitals: (req, res) => {
     return Hospital.find()
-    .lean()
-    .then(hospitals => res.render('hospitals', { hospitals }))
-    .catch(err => console.log(err))
+      .lean()
+      .then(hospitals => res.render('hospitals', { hospitals }))
+      .catch(err => console.log(err))
   },
   createHospitalPage: (req, res) => {
     return res.render('create')
